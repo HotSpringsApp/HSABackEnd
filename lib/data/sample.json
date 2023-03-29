@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Archena Thermal Complex",
+    "country": "Spain",
+    "city": "Archena",
+    "lat": 38.121161,
+    "long": -1.306359,
+    "temperature": "30-41°C",
+    "type": "Mineral-medicinal",
+    "public": true,
+    "private": false,
+    "hotel": true
+  },
+  {
+    "name": "Caldes de Montbui",
+    "country": "Spain",
+    "city": "Caldes de Montbui",
+    "lat": 41.629134,
+    "long": 2.165276,
+    "temperature": "70-75°C",
+    "type": "Mineral-medicinal",
+    "public": true,
+    "private": false,
+    "hotel": false
+  },
+  {
+    "name": "Termas de Cuntis",
+    "country": "Spain",
+    "city": "Cuntis",
+    "lat": 42.710202,
+    "long": -8.622103,
+    "temperature": "38-45°C",
+    "type": "Mineral-medicinal",
+    "public": true,
+    "private": false,
+    "hotel": true
+  },
+  {
+    "name": "Laias Caldaria",
+    "country": "Spain",
+    "city": "Laias",
+    "lat": 42.263040,
+    "long": -8.133744,
+    "temperature": "38-42°C",
+    "type": "Mineral-medicinal",
+    "public": true,
+    "private": false,
+    "hotel": true
+  },
+  {
+    "name": "Termas Romanas de Campo Valdés",
+    "country": "Spain",
+    "city": "Gijón",
+    "lat": 43.548358,
+    "long": -5.662087,
+    "temperature": "26-29°C",
+    "type": "Roman Baths",
+    "public": true,
+    "private": false,
+    "hotel": false
+  }
+]
