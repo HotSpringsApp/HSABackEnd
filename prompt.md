@@ -14,3 +14,4 @@ For every hot spring I give you for now can you give me the following data in js
 -hotel (boolean)
 -description (String - explains the individual hot springs)
 -setting (this explains the environment that the hot springs)
+
