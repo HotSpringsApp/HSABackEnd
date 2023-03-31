@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const HotSpringsSchema = new mongoose.Schema({
   name: {
     type: String,
-    unique: true
+    unique: true,
   },
   address: {
     type: String
