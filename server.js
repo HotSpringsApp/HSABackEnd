@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const { mongo, default: mongoose } = require('mongoose');
 const app = express();
+const HotSprings = require('./models/hotSprings');
 
 async function connect() {
   try {
@@ -18,8 +19,9 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/all', (req, res) => {
-  
+app.get('/all', async (req, res) => {
+  const hotsprings = await HotSprings.find();
+  res.json(hotsprings);
 })
 
 app.get('/:country', (req, res) => {

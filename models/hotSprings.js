@@ -37,8 +37,11 @@ const HotSpringsSchema = new mongoose.Schema({
   setting: {
     type: String
   },
-  temperature: {
-    type: String
+  temperatureMin: {
+    type: Number
+  },
+  temperatureMax: {
+    type: Number
   },
   createdAt: {
     type: Date,default: () => Date.now()
@@ -48,4 +51,4 @@ const HotSpringsSchema = new mongoose.Schema({
   }
 })
 
-model.exports= mongoose.model('hotsprings', HotSpringsSchema);
+module.exports= mongoose.model('hotsprings', HotSpringsSchema);
