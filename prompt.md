@@ -14,3 +14,10 @@ For every hot spring I give you for now can you give me the following data in ge
 -hotel (boolean)
 -description (String - explains the individual hot springs)
 -setting (this explains the environment that the hot springs)
+
+Lanjarón Spa - Granada
+Las Caldas Villa Termal - Asturias
+Montanejos Hot Springs - Castellón
+Pozo de los Humos - Salamanca
+Riofrio Thermal Spa - Granada
+Termas de Cuntis - Pontevedra
