@@ -1,4 +1,4 @@
-For every hot spring I give you for now can you give me the following data in json format please
+For every hot spring I give you for now can you give me the following data in geojson format please
 
 -name
 -address (should be full address that you can mail something to or navigate to in a vehicle)
@@ -14,4 +14,3 @@ For every hot spring I give you for now can you give me the following data in js
 -hotel (boolean)
 -description (String - explains the individual hot springs)
 -setting (this explains the environment that the hot springs)
-
