@@ -1,4 +1,4 @@
-For every hot spring I give you for now can you give me the following data in json format please
+For every hot spring I give you for now can you give me the following data in geojson format please
 
 -name
 -address (should be full address that you can mail something to or navigate to in a vehicle)
@@ -15,3 +15,9 @@ For every hot spring I give you for now can you give me the following data in js
 -description (String - explains the individual hot springs)
 -setting (this explains the environment that the hot springs)
 
+Lanjarón Spa - Granada
+Las Caldas Villa Termal - Asturias
+Montanejos Hot Springs - Castellón
+Pozo de los Humos - Salamanca
+Riofrio Thermal Spa - Granada
+Termas de Cuntis - Pontevedra
