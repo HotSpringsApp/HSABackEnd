@@ -2,7 +2,7 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-const auth = require("../middleware/auth");            // mainly used to delete an user (also to grab one user)
+// const auth = require("../middleware/auth");            // mainly used to delete an user (also to grab one user)
 
 // Register route
 router.post("/register", async (req, res) => {
@@ -54,6 +54,9 @@ router.post("/register", async (req, res) => {
 // login route setup
 router.post("/login", async (req, res) => {
   try {
+    console.log('we are inside now!')
+    console.log(req.body);
+
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -88,14 +91,14 @@ router.post("/login", async (req, res) => {
 });
 
 // delete user account route
-router.delete("/delete", auth, async (req, res) => {
-  try {
-    const deletedUser = await User.findByIdAndDelete(req.user);         // findByIdAndDelete() is a Mongo Model built in method
-    res.json(deletedUser);
-  } catch (error) {
-    res.status(500).json({ err: error.message });
-  }
-});
+// router.delete("/delete", auth, async (req, res) => {
+//   try {
+//     const deletedUser = await User.findByIdAndDelete(req.user);         // findByIdAndDelete() is a Mongo Model built in method
+//     res.json(deletedUser);
+//   } catch (error) {
+//     res.status(500).json({ err: error.message });
+//   }
+// });
 
 // validating if user is logged in by boolean check most useful for front-end
 router.post("/tokenIsValid", async (req, res) => {
@@ -116,13 +119,13 @@ router.post("/tokenIsValid", async (req, res) => {
 });
 
 // This route is grabbing one user
-router.get("/", auth, async (req,res) => {
-  const user = await User.findById(req.user)         // findById() is a Mongo Model built in method
-  res.json({
-    firstName: user.firstName,
-    lastName: user.lastName,
-    id: user._id,
-  })
-});
+// router.get("/", auth, async (req,res) => {
+//   const user = await User.findById(req.user)         // findById() is a Mongo Model built in method
+//   res.json({
+//     firstName: user.firstName,
+//     lastName: user.lastName,
+//     id: user._id,
+//   })
+// });
 
 module.exports = router;

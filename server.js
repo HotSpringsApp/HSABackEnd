@@ -8,6 +8,10 @@ const app = express();
 const HotSprings = require("./models/hotSprings");
 app.use(cors());
 
+// body parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
 const port = process.env.PORT || 3001;
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
@@ -26,18 +30,11 @@ connect();
 mongoose.set("strictQuery", true);
 
 // setting up routes
-app.get("/", (req, res) => {
-  res.render("index");
-});
 
-app.get("/all", async (req, res) => {
+app.get("/hotsprings", async (req, res) => {
   const hotsprings = await HotSprings.find();
   res.json(hotsprings);
 });
 
-app.get("/:country", (req, res) => {
-  res.json({ sample: "testing" });            // To be implemented - hostprings in a country - i.e. 'hotsprings.in/Spain'
-});
-
 // user routes
-app.use("/", require('./routes/userRouter'));
+app.use("/users", require('./routes/userRouter'));      // abstract require('./routes/userRouter') into a const
