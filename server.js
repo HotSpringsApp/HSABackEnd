@@ -1,10 +1,21 @@
-require("dotenv").config();
 const express = require("express");
 const { mongo, default: mongoose } = require("mongoose");
-const app = express();
 const cors = require("cors");
-const HotSprings = require("./models/hotSprings");
+require("dotenv").config();
 
+// setting up express
+const app = express();
+const HotSprings = require("./models/hotSprings");
+app.use(cors());
+
+// body parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+const port = process.env.PORT || 3001;
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
+// setting up mongoose
 async function connect() {
   try {
     await mongoose.connect(
@@ -18,23 +29,9 @@ async function connect() {
 connect();
 mongoose.set("strictQuery", true);
 
-app.use(cors());
+// setting up routes
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-app.get("/all", async (req, res) => {
+app.get("/hotsprings", async (req, res) => {
   const hotsprings = await HotSprings.find();
   res.json(hotsprings);
-});
-
-app.get("/:country", (req, res) => {
-  res.json({ sample: "testing" });
-});
-
-const port = process.env.PORT || 3000;
-
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
 });
