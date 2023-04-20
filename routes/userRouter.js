@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");                       // to encrypt passwords before storing in DB
+const jwt = require("jsonwebtoken");                      // to generate a token to authorise access to certain pages
 const User = require("../models/userModel");
 // const auth = require("../middleware/auth");            // mainly used to delete an user (also to grab one user)
 
@@ -46,6 +46,9 @@ router.post("/register", async (req, res) => {
     const savedUser = await newUser.save();
     res.json(savedUser);
 
+    // console.log('Data saved in DB:')
+    // console.log(savedUser);
+
   } catch (error) {
     res.status(500).json({ err: error.message });
   }
@@ -54,7 +57,7 @@ router.post("/register", async (req, res) => {
 // login route setup
 router.post("/login", async (req, res) => {
   try {
-    // console.log('console logging request body!')
+    // console.log('Login data passed to server')
     // console.log(req.body);
 
     const { email, password } = req.body;
@@ -85,6 +88,10 @@ router.post("/login", async (req, res) => {
         lastName: user.lastName,
       },
     });
+
+    // console.log('Token generated:')
+    // console.log(token);
+
   } catch (error) {
     res.status(500).json({ err: error.message });
   }
