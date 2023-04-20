@@ -54,8 +54,8 @@ router.post("/register", async (req, res) => {
 // login route setup
 router.post("/login", async (req, res) => {
   try {
-    console.log('we are inside now!')
-    console.log(req.body);
+    // console.log('console logging request body!')
+    // console.log(req.body);
 
     const { email, password } = req.body;
 
