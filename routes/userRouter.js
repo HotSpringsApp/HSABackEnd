@@ -2,7 +2,7 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-const auth = require("../middleware/auth");
+const auth = require("../middleware/auth");            // mainly used to delete an user (also to grab one user)
 
 // Register route
 router.post("/register", async (req, res) => {
@@ -25,7 +25,7 @@ router.post("/register", async (req, res) => {
         .json({ msg: "Passwords do not match. Please try again" });
     }
 
-    const existingEmail = await User.findOne({ email: email });
+    const existingEmail = await User.findOne({ email: email });         // findOne() is a Mongo Model built in method
     if (existingEmail) {
       return res
         .status(400)
@@ -90,7 +90,7 @@ router.post("/login", async (req, res) => {
 // delete user account route
 router.delete("/delete", auth, async (req, res) => {
   try {
-    const deletedUser = await User.findByIdAndDelete(req.user);
+    const deletedUser = await User.findByIdAndDelete(req.user);         // findByIdAndDelete() is a Mongo Model built in method
     res.json(deletedUser);
   } catch (error) {
     res.status(500).json({ err: error.message });
@@ -106,7 +106,7 @@ router.post("/tokenIsValid", async (req, res) => {
     const verified = jwt.verify(token, process.env.JWT_SECRET);
     if (!verified) return res.json(false);
 
-    const user = await User.findById(verified.id);
+    const user = await User.findById(verified.id);         // findById() is a Mongo Model built in method
     if (!user) return res.json(false);
 
     return res.json(true);
@@ -117,7 +117,7 @@ router.post("/tokenIsValid", async (req, res) => {
 
 // This route is grabbing one user
 router.get("/", auth, async (req,res) => {
-  const user = await User.findById(req.user)
+  const user = await User.findById(req.user)         // findById() is a Mongo Model built in method
   res.json({
     firstName: user.firstName,
     lastName: user.lastName,
