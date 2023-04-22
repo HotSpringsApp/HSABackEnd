@@ -2,7 +2,7 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");                       // to encrypt passwords before storing in DB
 const jwt = require("jsonwebtoken");                      // to generate a token to authorise access to certain pages
 const User = require("../models/userModel");
-// const auth = require("../middleware/auth");            // mainly used to delete an user (also to grab one user)
+const auth = require("../middleware/auth");            // mainly used to delete an user (also to grab one user)
 
 // Register route
 router.post("/register", async (req, res) => {
@@ -126,13 +126,13 @@ router.post("/tokenIsValid", async (req, res) => {
 });
 
 // This route is grabbing one user
-// router.get("/", auth, async (req,res) => {
-//   const user = await User.findById(req.user)         // findById() is a Mongo Model built in method
-//   res.json({
-//     firstName: user.firstName,
-//     lastName: user.lastName,
-//     id: user._id,
-//   })
-// });
+router.get("/", auth, async (req,res) => {
+  const user = await User.findById(req.user)         // findById() is a Mongo Model built in method
+  res.json({
+    firstName: user.firstName,
+    lastName: user.lastName,
+    id: user._id,
+  })
+});
 
 module.exports = router;
