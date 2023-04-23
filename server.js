@@ -35,3 +35,6 @@ app.get("/hotsprings", async (req, res) => {
   const hotsprings = await HotSprings.find();
   res.json(hotsprings);
 });
+
+app.use("/
+s", require('./routes/userRouter'));      // abstract require('./routes/userRouter') into a const

@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+
 const HotSpringsSchema = new mongoose.Schema({
   geometry: {
     type: {
@@ -78,4 +79,4 @@ const HotSpringsSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("hotsprings", HotSpringsSchema);
+module.exports= mongoose.model('hotsprings', HotSpringsSchema);
