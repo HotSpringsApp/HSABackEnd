@@ -2,6 +2,7 @@ const express = require("express");
 const { mongo, default: mongoose } = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
+const userRouter = require("./routes/userRouter");
 
 // setting up express
 const app = express();
@@ -9,7 +10,7 @@ const HotSprings = require("./models/hotSprings");
 app.use(cors());
 
 // body parser
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 const port = process.env.PORT || 3001;
@@ -36,5 +37,4 @@ app.get("/hotsprings", async (req, res) => {
   res.json(hotsprings);
 });
 
-app.use("/
-s", require('./routes/userRouter'));      // abstract require('./routes/userRouter') into a const
+app.use("/hotsprings", userRouter);
