@@ -36,5 +36,5 @@ app.get("/hotsprings", async (req, res) => {
   res.json(hotsprings);
 });
 
-// user routes
-app.use("/users", require('./routes/userRouter'));      // abstract require('./routes/userRouter') into a const
+app.use("/
+s", require('./routes/userRouter'));      // abstract require('./routes/userRouter') into a const
