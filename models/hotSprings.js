@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const HotSpringsSchema = new mongoose.Schema({
   geometry: {
@@ -79,4 +79,6 @@ const HotSpringsSchema = new mongoose.Schema({
   },
 });
 
-module.exports= mongoose.model('hotsprings', HotSpringsSchema);
+// Add Index later
+
+module.exports = mongoose.model("hotsprings", HotSpringsSchema);
